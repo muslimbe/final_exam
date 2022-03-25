@@ -26,9 +26,9 @@ function Home () {
 
   useEffect(() => {
                     fetch("https://jsonplaceholder.typicode.com/photos?albumId=1")
-                      .then((res) => res.json())
-                      .then((data) => {
-                                        data = data.splice(0, 5)
+                      .then(async (res) => await res.json())
+                      .then(async (data) => {
+                                        data = await data.splice(0, 5)
                                         setImgs(data)
                                        });
                   },[])
@@ -97,11 +97,10 @@ function Home () {
               {users.map((user) => {
                 
                 return(
-                  
                   <RecommendedVideo 
-                    url={imgs[0].url}
+                    url="https://via.placeholder.com/600/92c952"
                     name={user.name}
-                    />
+                  />
                 )
               })}
             </ul>
@@ -129,7 +128,7 @@ function Home () {
 
                                     
                                     <RecChannel
-                                      url={imgs[0].url}  
+                                      url="https://via.placeholder.com/600/92c952"  
                                       title={user.name}
                                     />
                                     )})}
